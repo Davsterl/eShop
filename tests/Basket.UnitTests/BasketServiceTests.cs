@@ -124,19 +124,18 @@ public class BasketServiceTests
         Assert.IsInstanceOfType<CustomerBasketResponse>(response);
         Assert.AreEqual(3, response.Items.Count());
         
+        var itemsList = response.Items.ToList();
+        
         // Verify first item details
-        var firstItem = response.Items.ElementAt(0);
-        Assert.AreEqual(1, firstItem.ProductId);
-        Assert.AreEqual(2, firstItem.Quantity);
+        Assert.AreEqual(1, itemsList[0].ProductId);
+        Assert.AreEqual(2, itemsList[0].Quantity);
         
         // Verify second item details
-        var secondItem = response.Items.ElementAt(1);
-        Assert.AreEqual(2, secondItem.ProductId);
-        Assert.AreEqual(1, secondItem.Quantity);
+        Assert.AreEqual(2, itemsList[1].ProductId);
+        Assert.AreEqual(1, itemsList[1].Quantity);
         
         // Verify third item details
-        var thirdItem = response.Items.ElementAt(2);
-        Assert.AreEqual(3, thirdItem.ProductId);
-        Assert.AreEqual(3, thirdItem.Quantity);
+        Assert.AreEqual(3, itemsList[2].ProductId);
+        Assert.AreEqual(3, itemsList[2].Quantity);
     }
 }
