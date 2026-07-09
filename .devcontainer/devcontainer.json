@@ -4,35 +4,19 @@
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "20"
-    },
-    "ghcr.io/devcontainers/features/dotnet:2": {
-      "version": "none",
-      "additionalVersions": "10.0",
-      "installUsingApt": false
-    },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/github/copilot-host/copilotd:0.5.1": {
       "relay": true
     }
   },
-  "forwardPorts": [18888, 8765],
+  "forwardPorts": [8765],
   "portsAttributes": {
-    "18888": {
-      "label": "Aspire dashboard",
-      "onAutoForward": "notify"
-    },
     "8765": {
       "label": "copilotd (AHP)",
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "npm install",
   "remoteEnv": {
-    "RUST_LOG": "info,copilotd=trace,copilot_ahp_host=trace",
-    "DOTNET_NOLOGO": "1",
-    "DOTNET_CLI_TELEMETRY_OPTOUT": "1"
+    "RUST_LOG": "info,copilotd=trace,copilot_ahp_host=trace"
   },
   "customizations": {
     "vscode": {
